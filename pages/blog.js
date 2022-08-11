@@ -4,18 +4,16 @@ import { useSelector } from 'react-redux'
 import { Layout } from '../components/Layout'
 import { Blog } from '../components/Blog'
 
-export default function Home() {
+export default function BlogSolo() {
   const articles = useSelector((state) => state.blog.articles)
 
   return (
-    <Layout title="Home" description="Home">
-      {articles.map(article => (
-        <Blog
-          title={article.title}
-          blogContent={article.blogContent}
-          key={article.id}
-        />
-      ))}
+    <Layout title={articles[0].title} description={articles[0].title}>
+      <Blog
+        title={articles[0].title}
+        blogContent={articles[0].blogContent}
+        key={articles[0].id}
+      />
     </Layout>
   )
 }
