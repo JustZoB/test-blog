@@ -1,14 +1,10 @@
 import React from "react";
-import Link from "next/link"
-import Head from "next/head"
 import styled from "styled-components";
-
 
 export const Blog = ({ id, title, blogContent }) => {
   return (
     <BlogContent>
       <h2>{title}</h2>
-      <Link href={`/blog/${id}`}>more</Link>
       {blogContent.map(item => (
         <div key={item.id}>
           {item.tag === "p" &&
@@ -26,4 +22,8 @@ export const Blog = ({ id, title, blogContent }) => {
 export const BlogContent = styled.article`
   display: flex;
   flex-direction: column;
+  width: 780px;
+  background-color: #FFFFFF;
+  padding: 0 20px 20px 20px;
+  margin: 10px 0;
 `
