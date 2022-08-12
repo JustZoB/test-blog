@@ -11,6 +11,7 @@ export default function Home() {
     <Layout title="Home" description="Home">
       {articles.map(article => (
         <Blog
+          id={article.id}
           title={article.title}
           blogContent={article.blogContent}
           key={article.id}
