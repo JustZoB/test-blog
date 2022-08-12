@@ -15,6 +15,8 @@ export default function Home() {
             title={article.title}
             key={article.id}
             description={article.description}
+            datetime={article.datetime}
+            image={`/${article.image}`}
           />
         ))}
       </BlogsList>
@@ -22,7 +24,7 @@ export default function Home() {
   )
 }
 
-export const BlogsList = styled.article`
+const BlogsList = styled.article`
   display: flex;
   flex-direction: column;
 `

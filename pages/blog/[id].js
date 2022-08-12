@@ -13,6 +13,7 @@ export default function BlogSolo() {
         title={articles[query.id].title}
         blogContent={articles[query.id].blogContent}
         key={articles[query.id].id}
+        tags={articles[query.id].tags}
       />
     </Layout>
   )

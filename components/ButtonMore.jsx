@@ -11,7 +11,7 @@ export const ButtonMore = ({ id }) => {
   )
 }
 
-export const StyledButton = styled.button`
+const StyledButton = styled.button`
   background-color: green;
   width: fit-content;
   padding: 10px;

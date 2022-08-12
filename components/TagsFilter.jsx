@@ -1,15 +1,23 @@
 import styled from "styled-components";
-import Link from "next/link"
+import { useSelector } from 'react-redux'
+import { Tag } from "./Tag"
 
 export const TagsFilter = () => {
+  const list = useSelector((state) => state.tags.list)
+
   return (
     <TagsBlock>
-      Tags
+      {list.map(tag => (
+        <Tag
+          key={tag}
+          tag={tag}
+        />
+      ))}
     </TagsBlock>
   )
 }
 
-export const TagsBlock = styled.div`
+const TagsBlock = styled.div`
   display: flex;
   flex-direction: column;
   width: 200px;

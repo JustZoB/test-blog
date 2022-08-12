@@ -40,13 +40,13 @@ export const Layout = ({ title, description, children }) => {
   )
 }
 
-export const Content = styled.div`
+const Content = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 `
 
-export const Header = styled.header`
+const Header = styled.header`
   width: 1000px;
   height: 100px;
   display: flex;
@@ -55,7 +55,7 @@ export const Header = styled.header`
   margin: auto;
 `
 
-export const Container = styled.section`
+const Container = styled.section`
   width: 100%;
   height: 100px;
   display: flex;
@@ -65,20 +65,20 @@ export const Container = styled.section`
   color: #333;
   padding-bottom: 40px;
 `
-export const FooterWrap = styled.footer`
+const FooterWrap = styled.footer`
   width: 100%;
   padding: 30px;
   background-color: #181818;
 `
 
-export const Footer = styled.div`
+const Footer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   margin: auto;
 `
 
-export const Copyright = styled.p`
+const Copyright = styled.p`
   font-size: 16px;
   color: #FFFFFF;
 `
