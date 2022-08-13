@@ -5,7 +5,7 @@ import Image from "next/image";
 export const Blog = ({ title, blogContent, tags }) => {
   return (
     <BlogContent>
-      <h2>{title}</h2>
+      <h1>{title}</h1>
       {blogContent.map(item => (
         <div key={item.id}>
           {item.tag === "p" &&
@@ -33,7 +33,7 @@ const BlogContent = styled.article`
   flex-direction: column;
   width: 780px;
   background-color: #FFFFFF;
-  padding: 0 20px 20px 20px;
+  padding: 20px;
   margin: 10px 0;
 `
 

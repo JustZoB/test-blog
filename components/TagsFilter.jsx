@@ -18,6 +18,9 @@ export const TagsFilter = () => {
 }
 
 const TagsBlock = styled.div`
+  position: sticky;
+  top: 10px;
+  max-height: 400px;
   display: flex;
   flex-direction: column;
   width: 200px;
