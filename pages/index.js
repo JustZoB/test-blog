@@ -2,9 +2,19 @@ import { useSelector } from 'react-redux'
 import { Layout } from '../components/Layout'
 import { BlogPreview } from '../components/BlogPreview'
 import styled from "styled-components";
+import { TagsFilter } from "../components/TagsFilter"
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { setArticles } from "../store/blogSlice"
 
 export default function Home() {
-  const articles = useSelector((state) => state.blog.articles)
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setArticles())
+  }, [dispatch])
+
+  const articles = useSelector((state) => state.blog.articlesTagsFiltred)
 
   let arrayForSort = [...articles];
   arrayForSort.sort((a, b) => { return new Date(a.datetime) > new Date(b.datetime) ? -1 : 1 })
@@ -23,6 +33,7 @@ export default function Home() {
           />
         ))}
       </BlogsList>
+      <TagsFilter />
     </Layout>
   )
 }

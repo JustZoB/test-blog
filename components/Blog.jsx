@@ -31,15 +31,17 @@ export const Blog = ({ title, blogContent, tags }) => {
 const BlogContent = styled.article`
   display: flex;
   flex-direction: column;
-  width: 780px;
+  width: 1000px;
   background-color: #FFFFFF;
   padding: 20px;
   margin: 10px 0;
+  border-radius: 3px;
 `
 
 const ImageContainer = styled.div`
   position: relative;
   height: 450px;
+  margin: 10px 0;
 
   .image {
     width: 100%;

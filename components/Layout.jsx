@@ -4,7 +4,6 @@ import Image from 'next/image'
 import Head from "next/head"
 import styled from "styled-components"
 import logo from "../public/logo.png"
-import { TagsFilter } from "./TagsFilter"
 
 export const Layout = ({ title, description, children }) => {
   return (
@@ -28,7 +27,6 @@ export const Layout = ({ title, description, children }) => {
         </Header>
         <Container>
           {children}
-          <TagsFilter />
         </Container>
         <FooterWrap>
           <Footer>

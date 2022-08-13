@@ -223,7 +223,7 @@ const initialState = {
         },
       ],
       description: "Строен и красив мир техники и современных технологий. Тысячи инженеров, программистов, проектировщиков и других башковитых людей день за днем не покладая рук трудятся над тем, чтобы сделать его надежным, удобным, логичным и понятным. Но, как всегда, вылезает его величество человеческий фактор. Хрустальный компьютерный замок рушится под натиском «глупых» пользователей, которые не хотят жить по теории, не хотят соответствовать идеальной мечте.",
-      tags: ["Дизайн"],
+      tags: ["Дизайн", "Разработка"],
       datetime: "2022-07-28T11:50:22.000Z",
       image: "1.png",
     },
@@ -582,19 +582,37 @@ const initialState = {
       datetime: "2022-08-09T05:50:29.000Z",
       image: "3.png",
     },
-  ]
+  ],
+  articlesTagsFiltred: [],
+  tagList: ["Разработка", "Дизайн", "Экология", "Маркетинг"],
+  sortedTagList: [],
 }
 
 const blogSlice = createSlice({
   name: "blog",
   initialState,
   reducers: {
-    add: (state) => {
-      state.articles = state.articles
-    }
+    setArticles: (state) => {
+      state.articlesTagsFiltred = [...state.articles]
+    },
+    clickTag: (state, action) => {
+      if (state.sortedTagList.indexOf(action.payload.tag) >= 0) {
+        state.sortedTagList = state.sortedTagList.filter(tag => tag !== action.payload.tag)
+      } else {
+        state.sortedTagList = [...state.sortedTagList, action.payload.tag]
+      }
+
+      state.articlesTagsFiltred = [...state.articles]
+
+      if (state.sortedTagList.length) {
+        state.articlesTagsFiltred = state.articlesTagsFiltred.filter(article =>
+          JSON.stringify(state.sortedTagList.sort()) === JSON.stringify(article.tags.filter(tag => state.sortedTagList.includes(tag)).sort())
+        )
+      }
+    },
   }
 })
 
-export const { add } = blogSlice.actions
+export const { setArticles, clickTag } = blogSlice.actions
 
 export default blogSlice.reducer

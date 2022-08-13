@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { Tag } from "./Tag"
 
 export const TagsFilter = () => {
-  const list = useSelector((state) => state.tags.list)
+  const list = useSelector((state) => state.blog.tagList)
 
   return (
     <TagsBlock>
@@ -27,4 +27,5 @@ const TagsBlock = styled.div`
   background-color: #FFFFFF;
   padding: 20px;
   margin: 10px;
+  border-radius: 3px;
 `

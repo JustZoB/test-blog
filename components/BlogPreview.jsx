@@ -35,6 +35,7 @@ const BlogContent = styled.article`
   background-color: #FFFFFF;
   padding: 20px;
   margin: 10px 0 0 0;
+  border-radius: 3px;
 `
 
 const ImageContainer = styled.div`
