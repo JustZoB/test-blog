@@ -1,10 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
+import { Breadcrumbs } from "./Breadcrumbs"
 
 export const Blog = ({ title, blogContent, tags }) => {
   return (
     <BlogContent>
+      <Breadcrumbs title={[title]} />
+
       <h1>{title}</h1>
       {blogContent.map(item => (
         <div key={item.id}>
