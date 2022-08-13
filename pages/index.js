@@ -22,21 +22,46 @@ export default function Home() {
   return (
     <Layout title="Home" description="Home">
       <BlogsList>
-        {arrayForSort.map(article => (
-          <BlogPreview
-            id={article.id}
-            title={article.title}
-            key={article.id}
-            description={article.description}
-            datetime={article.datetime}
-            image={`/${article.image}`}
-          />
-        ))}
+        {arrayForSort.length > 0 ? 
+          <>
+            {arrayForSort.map(article => (
+              <BlogPreview
+                id={article.id}
+                title={article.title}
+                key={article.id}
+                description={article.description}
+                datetime={article.datetime}
+                image={`/${article.image}`}
+              />
+            ))}
+          </> :
+          <NoContent>
+            <p>Нет статей с такими тэгами</p>
+          </NoContent>
+        }
+        
       </BlogsList>
       <TagsFilter />
     </Layout>
   )
 }
+
+const NoContent = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 780px;
+  height: 500px;
+  background-color: #FFFFFF;
+  padding: 20px;
+  margin: 10px 0 0 0;
+  border-radius: 3px;
+
+  P {
+    font-size: 20px;
+    font-weight: bold;
+  }
+`
 
 const BlogsList = styled.article`
   display: flex;
