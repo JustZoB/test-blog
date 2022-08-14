@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Head from "next/head"
 import styled from "styled-components"
 import logo from "../public/logo.png"
+import { Search } from "./Search"
 
 export const Layout = ({ title, description, children }) => {
   return (
@@ -15,15 +16,16 @@ export const Layout = ({ title, description, children }) => {
       <Content>
         <Header>
           <Link href={`/`}>
-            <a>
+            <LogoContainer>
               <Image
                 src={logo}
                 alt="logo"
-                width={100}
-                height={100}
+                width={60}
+                height={60}
               />
-            </a>
+            </LogoContainer>
           </Link>
+          <Search />
         </Header>
         <Container>
           {children}
@@ -46,11 +48,23 @@ const Content = styled.div`
 
 const Header = styled.header`
   width: 1000px;
-  height: 100px;
+  height: 80px;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: #FFFFFF;
   color: #101010;
   margin: auto;
+`
+
+const LogoContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    cursor: pointer;
+  }
 `
 
 const Container = styled.section`
